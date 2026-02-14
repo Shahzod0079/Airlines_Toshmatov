@@ -22,22 +22,12 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Иконка самолета ✈ слева от текста (белая, размер 24) -->
             <TextBlock Grid.Column="0" 
                        Text="✈" 
                        Foreground="White" 
                        FontSize="24" 
                        VerticalAlignment="Center" 
-                       Margin="15,0,11,0" RenderTransformOrigin="0.5,0.5">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="19.833"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
+                       Margin="15,0,11,0"/>
 
             <TextBlock Grid.Column="1" 
                        Text="Управление авиалиниями"
@@ -46,23 +36,70 @@
                        VerticalAlignment="Center"/>
 
             <Button Grid.Column="2" 
+                    x:Name="backButton"
                     Content="Вернуться"
                     Width="120"
                     Height="30"
                     HorizontalAlignment="Right"
                     Margin="0,0,20,0"
-                    VerticalAlignment="Center"/>
+                    VerticalAlignment="Center"
+                    Click="Back"/>
         </Grid>
 
         <!-- Основной контент -->
         <Grid Grid.Row="1">
-            <Label Content="Поиск дешевых авиабилетов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Margin="0,59,0,0" Foreground="White"/>
-            <Label Content="Лучший способ купить авиабилеты дешево" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,95,0,0" Foreground="White"/>
-            <Label Content="Откуда:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="275,121,0,0" Foreground="White"/>
-            <TextBox Width="250" Height="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,152,0,0" />
-            <Label Content="Куда:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="275,182,0,0" Foreground="White"/>
-            <TextBox Width="250" Height="26" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,213,0,0" />
-            <Button VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25" Content="Найти" Margin="0,251,275,0" Background="#FF4000" Foreground="White"/>
+            <Label Content="Поиск дешевых авиабилетов" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   FontSize="16" 
+                   Margin="0,59,0,0" 
+                   Foreground="White"/>
+
+            <Label Content="Лучший способ купить авиабилеты дешево" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,95,0,0" 
+                   Foreground="White"/>
+
+            <Label Content="Откуда:" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Margin="275,121,0,0" 
+                   Foreground="White"/>
+
+            <!-- Добавлено имя для TextBox -->
+            <TextBox x:Name="from" 
+                     Width="250" 
+                     Height="25" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Margin="0,152,0,0" />
+
+            <Label Content="Куда:" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Margin="275,182,0,0" 
+                   Foreground="White"/>
+
+            <!-- Добавлено имя для TextBox -->
+            <TextBox x:Name="to" 
+                     Width="250" 
+                     Height="26" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Margin="0,213,0,0" />
+
+            <!-- Добавлен Click обработчик -->
+            <Button x:Name="searchButton"
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Width="100" 
+                    Height="25" 
+                    Content="Найти" 
+                    Margin="0,251,275,0" 
+                    Background="#FF4000" 
+                    Foreground="White"
+                    Click="Search"/>
         </Grid>
     </Grid>
 </Page>

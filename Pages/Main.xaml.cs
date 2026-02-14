@@ -20,9 +20,26 @@ namespace Airlines_Toshmatov.Pages
     /// </summary>
     public partial class Main : Page
     {
+        private MainWindow mainWindow;
+
+        private TextBox fromTextBox;
+        private TextBox toTextBox;
+
         public Main()
         {
             InitializeComponent();
+
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.frame.Navigate(new Ticket(from.Text, to.Text));  
         }
     }
 }

@@ -13,16 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Airlines_Toshmatov.Pages
+namespace Airlines_Toshmatov.Pages  
 {
-    /// <summary>
-    /// Логика взаимодействия для Ticket.xaml
-    /// </summary>
+
     public partial class Ticket : Page
     {
-        public Ticket()
+        public Ticket(string from, string to)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
+        }
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.frame.Navigate(new Main());
         }
     }
 }
