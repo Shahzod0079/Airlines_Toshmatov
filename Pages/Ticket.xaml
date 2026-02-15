@@ -4,14 +4,14 @@
       Background="White"
       Title="Ticket">
 
-    <Grid Height="400" Width="700">
+    <Grid Height="450" Width="800" MinHeight="450" MinWidth="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Верхняя панель -->
-        <Grid Background="#1976D2">
+        <Grid Background="#FF0C73FF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -29,54 +29,14 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock Grid.Column="1" Text="Управление авиалиниями" Foreground="White" FontSize="18" VerticalAlignment="Center" Margin="0,0,0,0"/>
-            <Button Grid.Column="2" Content="Вернуться" Width="120" Height="30" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="Вернуться" Width="100" Height="25" HorizontalAlignment="Left" Background="White" Margin="614,0,0,0" VerticalAlignment="Center" Click="Back" Grid.ColumnSpan="2"/>
         </Grid>
-        <Border Grid.Row="1" Background="#E4E4E4" Margin="30,15,30,0"  Padding="10"   Height="125" VerticalAlignment="Top">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"  Text="1999 ₽" FontSize="20" FontWeight="Bold" Margin="10,5,36,0" Grid.ColumnSpan="2"/>
-                <Button Grid.Column="0"  Content="Подробнее" Background="#FF5722" Foreground="White"  Margin="2,44,3,0" Width="100" Height="30" VerticalAlignment="Top"/>
-                <TextBlock Grid.Column="2"  Text="pobeda" FontWeight="Bold"   Margin="10,3,86,0" Height="18" VerticalAlignment="Top"/>
-                <TextBlock Grid.Column="2"   Text="05:50"   FontSize="16"  Margin="10,27,86,0" Height="23" VerticalAlignment="Top"/>
-                <TextBlock Grid.Column="2"  Text="Пермь" Margin="10,55,86,0" Height="26" VerticalAlignment="Top"/>
-                <TextBlock Grid.Column="2" Text="14 февраля 2026" FontSize="12"  Margin="10,81,86,0" Height="16" VerticalAlignment="Top"/>
 
-                <TextBlock Grid.Column="2"  Text="✈" FontSize="16" Foreground="White" Width="25"  Height="25" TextAlignment="Center"  Margin="49,35,114,0" RenderTransformOrigin="0.179,0.478" VerticalAlignment="Top">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="14.712"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-
-                <Border Background="Gray"  Grid.Column="2"    Grid.ColumnSpan="2"    Margin="53,61,-226,0"  Height="3" VerticalAlignment="Top"/>
-
-                <TextBlock Grid.Column="3"  Text="✈"  FontSize="16"    Foreground="White"  Width="25"  Height="25" TextAlignment="Center"    Margin="205,32,-227,0"   RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="81.641"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-
-                <TextBlock Text="В пути: 2ч 15м" FontSize="12"    Grid.Column="3"       Margin="17,38,-99,0" Height="18" VerticalAlignment="Top"/>
-
-                <TextBlock Text="pobeda"     FontWeight="Bold"   Grid.Column="3" Margin="232,3,-277,0" Height="36" VerticalAlignment="Top"/>
-                <TextBlock Text="06:05" FontSize="16"  Grid.Column="3" Margin="232,24,-267,0" Height="21" VerticalAlignment="Top"/>
-                <TextBlock Text="Пермь"  Grid.Column="3"   Margin="232,55,-267,0" Height="19" VerticalAlignment="Top"/>
-                <TextBlock Text="14 февраля 2026" FontSize="12"  Grid.Column="3"  Margin="232,76,-323,0" Height="13" VerticalAlignment="Top"/>
-            </Grid>
-        </Border>
+        <!-- КОНТЕЙНЕР ДЛЯ КАРТОЧЕК РЕЙСОВ -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="FlightsContainer" Margin="30,15,30,15">
+                <!-- Сюда будут динамически добавляться карточки рейсов из БД -->
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

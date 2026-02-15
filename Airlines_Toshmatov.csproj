@@ -169,5 +169,11 @@
   <ItemGroup>
     <Resource Include="Image\image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorkingBD\WorkingBD.csproj">
+      <Project>{b621082f-1b85-4d84-8001-9e41c14adab4}</Project>
+      <Name>WorkingBD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

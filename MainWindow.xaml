@@ -8,11 +8,41 @@
         Title="Управление авиалиниями" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF0C73FF">
-            <Image Width="42" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="23,3,0,0" Source="Image/image.png" />
-            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Управление авиалиниями" Foreground="White" Margin="74,8,0,0" FontSize="16"/>
-            <Button VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25" Content="Выйти" Margin="0,8,10,0" Background="White"/>
+            <!-- Вместо Image теперь TextBlock с самолетом ✈ -->
+            <TextBlock Width="42" 
+               Height="42" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
+               Margin="20,3,0,0"
+               Text="✈"
+               FontSize="32"
+               Foreground="White"
+               TextAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="21.383"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
 
+            <Label VerticalAlignment="Top" 
+           HorizontalAlignment="Left" 
+           Content="Управление авиалиниями" 
+           Foreground="White" 
+           Margin="74,8,0,0" 
+           FontSize="16"/>
 
+            <Button VerticalAlignment="Top" 
+            HorizontalAlignment="Right" 
+            Width="100" 
+            Height="25" 
+            Content="Выйти" 
+            Margin="0,8,10,0" 
+            Background="White" 
+            Click="Exit_Click"/>
         </Grid>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="0,60,0,0" />
     </Grid>

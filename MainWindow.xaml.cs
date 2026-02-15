@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Airlines;
+using MySql.Data.MySqlClient;
 
 namespace Airlines_Toshmatov
 {
@@ -29,9 +30,38 @@ namespace Airlines_Toshmatov
         public MainWindow()
         {
             InitializeComponent();
+            frame.Navigate(new Pages.Main()); // ← открывается страница Main
 
         }
+        public void LoadTickets()
+        {
+            ticketsClasses.Clear();
+            string connection = "server=localhost;port=3306;database=airlines;uid=root;pwd=shSH..,,";
 
+            using (MySqlConnection mySqlConnection = new MySqlConnection(connection))
+            {
+                mySqlConnection.Open();
 
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM tickets;", mySqlConnection);
+                MySqlDataReader ticket_query = cmd.ExecuteReader();
+
+                while (ticket_query.Read())
+                {
+                    ticketsClasses.Add(new TicketClass(
+                        ticket_query.GetValue(1).ToString(), 
+                        ticket_query.GetValue(2).ToString(), 
+                        ticket_query.GetValue(3).ToString(), 
+                        ticket_query.GetValue(4).ToString(), 
+                        ticket_query.GetValue(5).ToString()  
+                    ));
+                }
+
+                ticket_query.Close();
+            }
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

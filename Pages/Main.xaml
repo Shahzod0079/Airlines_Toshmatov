@@ -14,40 +14,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Верхняя панель -->
-        <Grid Background="#FF0C73FF">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0" 
-                       Text="✈" 
-                       Foreground="White" 
-                       FontSize="24" 
-                       VerticalAlignment="Center" 
-                       Margin="15,0,11,0"/>
-
-            <TextBlock Grid.Column="1" 
-                       Text="Управление авиалиниями"
-                       Foreground="White"
-                       FontSize="18"
-                       VerticalAlignment="Center"/>
-
-            <Button Grid.Column="2" 
-                    x:Name="backButton"
-                    Content="Вернуться"
-                    Width="120"
-                    Height="30"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,20,0"
-                    VerticalAlignment="Center"
-                    Click="Back"/>
-        </Grid>
-
         <!-- Основной контент -->
-        <Grid Grid.Row="1">
+        <Grid Margin="0,10,0,0" Grid.RowSpan="2">
             <Label Content="Поиск дешевых авиабилетов" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Top" 
@@ -67,7 +35,6 @@
                    Margin="275,121,0,0" 
                    Foreground="White"/>
 
-            <!-- Добавлено имя для TextBox -->
             <TextBox x:Name="from" 
                      Width="250" 
                      Height="25" 
@@ -81,7 +48,6 @@
                    Margin="275,182,0,0" 
                    Foreground="White"/>
 
-            <!-- Добавлено имя для TextBox -->
             <TextBox x:Name="to" 
                      Width="250" 
                      Height="26" 
@@ -89,14 +55,42 @@
                      VerticalAlignment="Top" 
                      Margin="0,213,0,0" />
 
-            <!-- Добавлен Click обработчик -->
+            <!-- Дата туда -->
+            <Label Content="Дата туда:" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Margin="275,243,0,0" 
+                   Foreground="White"/>
+
+            <DatePicker x:Name="DepartureDate" 
+                        Width="250" 
+                        Height="26" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top" 
+                        Margin="0,273,0,0"/>
+
+            <!-- Дата обратно -->
+            <Label Content="Дата обратно:" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" 
+                   Margin="275,303,0,0" 
+                   Foreground="White"/>
+
+            <DatePicker x:Name="ReturnDate" 
+                        Width="250" 
+                        Height="26" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top" 
+                        Margin="0,333,0,0"/>
+
+            <!-- Кнопка Найти -->
             <Button x:Name="searchButton"
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Right" 
                     Width="100" 
                     Height="25" 
                     Content="Найти" 
-                    Margin="0,251,275,0" 
+                    Margin="0,371,275,0" 
                     Background="#FF4000" 
                     Foreground="White"
                     Click="Search"/>
