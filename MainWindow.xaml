@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Airlines_Toshmatov"
         mc:Ignorable="d"
-        Title="Управление авиалиниями" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Управление авиалиниями" Height="644" Width="817" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF0C73FF">
             <!-- Вместо Image теперь TextBlock с самолетом ✈ -->

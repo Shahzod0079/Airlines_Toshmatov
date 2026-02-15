@@ -69,7 +69,7 @@
 
                 <TextBlock Grid.Column="2" 
                            x:Name="FromDateText"
-                           Text="14 февраля 2026"
+                           Text="{Binding data}"
                            FontSize="12" 
                            Foreground="Gray"
                            Margin="10,81,86,0" 
@@ -161,7 +161,7 @@
 
                 <TextBlock Grid.Column="3"
                            x:Name="ToDateText"
-                           Text="14 февраля 2026"
+                           Text="{Binding data}"
                            FontSize="12" 
                            Foreground="Gray"
                            Margin="232,76,-323,0" 

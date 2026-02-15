@@ -13,13 +13,16 @@
 
         public string time_way { get; set; }
 
-        public TicketClass(string from, string to, string price, string time_start, string time_way)
+        public string date { get; set; }
+
+        public TicketClass(string from, string to, string price, string time_start, string time_way, string date)
         {
             this.from = from;
             this.to = to;
             this.price = price;
             this.time_start = time_start;
             this.time_way = time_way;
+            this.date = date;  
         }
     }
 }
