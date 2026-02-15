@@ -1,6 +1,6 @@
 ﻿namespace Airlines
 {
-    class TicketClass
+    public class TicketClass
     {
 
         public string price { get; set; }

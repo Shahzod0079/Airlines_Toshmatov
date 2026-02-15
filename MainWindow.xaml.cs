@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Airlines;
 
 namespace Airlines_Toshmatov
 {
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+
+
+
     public partial class MainWindow : Window
     {
+        public List<TicketClass> ticketsClasses = new List<TicketClass>();
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
 
