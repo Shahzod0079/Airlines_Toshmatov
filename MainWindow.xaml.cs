@@ -30,7 +30,7 @@ namespace Airlines_Toshmatov
         public MainWindow()
         {
             InitializeComponent();
-            frame.Navigate(new Pages.Main()); // ← открывается страница Main
+            frame.Navigate(new Pages.Main()); 
 
         }
         public void LoadTickets()
@@ -47,12 +47,12 @@ namespace Airlines_Toshmatov
                 while (ticket_query.Read())
                 {
                     ticketsClasses.Add(new TicketClass(
-                        ticket_query.GetValue(1).ToString(), // from
-                        ticket_query.GetValue(2).ToString(), // to
-                        ticket_query.GetValue(3).ToString(), // price
-                        ticket_query.GetValue(4).ToString(), // time_start
-                        ticket_query.GetValue(5).ToString(), // time_way
-                        ticket_query.GetValue(6).ToString()  // date ← ДОБАВИТЬ
+                        ticket_query.GetValue(1).ToString(), 
+                        ticket_query.GetValue(2).ToString(), 
+                        ticket_query.GetValue(3).ToString(), 
+                        ticket_query.GetValue(4).ToString(), 
+                        ticket_query.GetValue(5).ToString(), 
+                        ticket_query.GetValue(6).ToString()  
                     ));
                 }
                 ticket_query.Close();

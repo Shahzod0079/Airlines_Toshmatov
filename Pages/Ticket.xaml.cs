@@ -28,16 +28,13 @@ namespace Airlines_Toshmatov.Pages
         {
             var mainWindow = Application.Current.MainWindow as MainWindow;
 
-            // Все рейсы
             var allFlights = mainWindow.ticketsClasses;
 
-            // Рейсы ТУДА (из А в Б на дату туда)
             var flightsThere = allFlights.Where(t =>
                 t.from.Equals(from, StringComparison.OrdinalIgnoreCase) &&
                 t.to.Equals(to, StringComparison.OrdinalIgnoreCase) &&
                 t.date == departureDate).ToList();
 
-            // Рейсы ОБРАТНО (из Б в А на дату обратно)
             var flightsBack = allFlights.Where(t =>
                 t.from.Equals(to, StringComparison.OrdinalIgnoreCase) &&
                 t.to.Equals(from, StringComparison.OrdinalIgnoreCase) &&
@@ -45,7 +42,6 @@ namespace Airlines_Toshmatov.Pages
 
             FlightsContainer.Children.Clear();
 
-            // Заголовок "Туда"
             TextBlock thereHeader = new TextBlock
             {
                 Text = $"Туда: {departureDate}",
@@ -56,7 +52,6 @@ namespace Airlines_Toshmatov.Pages
             };
             FlightsContainer.Children.Add(thereHeader);
 
-            // Рейсы туда
             if (flightsThere.Any())
             {
                 foreach (var flight in flightsThere)
@@ -78,7 +73,6 @@ namespace Airlines_Toshmatov.Pages
                 FlightsContainer.Children.Add(noFlights);
             }
 
-            // Заголовок "Обратно"
             TextBlock backHeader = new TextBlock
             {
                 Text = $"Обратно: {returnDate}",
@@ -89,7 +83,6 @@ namespace Airlines_Toshmatov.Pages
             };
             FlightsContainer.Children.Add(backHeader);
 
-            // Рейсы обратно
             if (flightsBack.Any())
             {
                 foreach (var flight in flightsBack)
