@@ -36,26 +36,33 @@ namespace Airlines_Toshmatov
         public void LoadTickets()
         {
             ticketsClasses.Clear();
-            string connection = "server=localhost;port=3306;database=airlines;uid=root;pwd=shSH..,,";
+            string connection = "server=localhost;port=3306;database=airlines;uid=root;pwd=";
 
             using (MySqlConnection mySqlConnection = new MySqlConnection(connection))
             {
                 mySqlConnection.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM tickets;", mySqlConnection);
-                MySqlDataReader ticket_query = cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
 
-                while (ticket_query.Read())
+                while (reader.Read())
                 {
+                    // Получаем время и обрезаем секунды
+                    string timeWay = reader["time_way"]?.ToString() ?? "";
+                    if (timeWay.Length >= 5)
+                    {
+                        timeWay = timeWay.Substring(0, 5); 
+                    }
+
                     ticketsClasses.Add(new TicketClass(
-                        ticket_query.GetValue(1).ToString(), 
-                        ticket_query.GetValue(2).ToString(), 
-                        ticket_query.GetValue(3).ToString(), 
-                        ticket_query.GetValue(4).ToString(), 
-                        ticket_query.GetValue(5).ToString(), 
-                        ticket_query.GetValue(6).ToString()  
+                        reader["from"]?.ToString() ?? "",        
+                        reader["to"]?.ToString() ?? "",          
+                        reader["price"]?.ToString() ?? "0",      
+                        timeWay,                             
+                        "",                                       
+                        reader["time_start"]?.ToString() ?? ""   
                     ));
                 }
-                ticket_query.Close();
+                reader.Close();
             }
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
